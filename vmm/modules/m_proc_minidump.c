@@ -1002,8 +1002,9 @@ POB_M_MINIDUMP_CONTEXT M_MiniDump_Initialize_Internal(_In_ VMM_HANDLE H, _In_ VM
     }
 
     // ensure the generated file is ok security wise:
+    // Toggle to FALSE to allow for LSASS capture
     if(!strcmp(pProcess->szName, "lsass.exe")) {
-        ctx->fDisabledSecurity = TRUE;
+        ctx->fDisabledSecurity = FALSE;
     }
 
     // finish
